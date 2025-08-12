@@ -15,7 +15,7 @@ app.use("/", (req, res, next) => {
 // connect to mongoDB
 mongoose
 	.connect(
-		"mongodb+srv://abkMERN02:ij8eRUNHAE85zCiY@cluster0.ofrmvez.mongodb.net/"
+		// "mongodb+srv://abkMERN02:ij8eRUNHAE85zCiY@cluster0.ofrmvez.mongodb.net/"
 	)
 	.then(() => console.log("Connected to MongoDB"))
 	.then(() => {
