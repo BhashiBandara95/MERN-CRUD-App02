@@ -1,20 +1,20 @@
 // create DB connection
 
-// setup express and mongoose
-
-const express = require("express");
-const mongoose = require("mongoose");
+const express = require("express"); // setup express mongoose
+const mongoose = require("mongoose"); // setup mongoose
+const router = require("./Routes/UserRoutes"); // insert route
 
 const app = express();
 
 // connect middleware
-app.use("/", (req, res, next) => {
-	res.send("It is Working");
-});
+app.use("/users", router);
 
 // connect to mongoDB
+/*Creates an instance of an Express application, which will be used to define routes and middleware. */
 mongoose
-	.connect()
+	.connect(
+		"mongodb+srv://abkMERN02:ij8eRUNHAE85zCiY@cluster0.ofrmvez.mongodb.net/"
+	)
 	.then(() => console.log("Connected to MongoDB"))
 	.then(() => {
 		app.listen(5000);
