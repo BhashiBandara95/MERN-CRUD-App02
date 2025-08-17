@@ -13,7 +13,7 @@ app.use("/users", router);
 /*Creates an instance of an Express application, which will be used to define routes and middleware. */
 mongoose
 	.connect(
-		"mongodb+srv://abkMERN02:ij8eRUNHAE85zCiY@cluster0.ofrmvez.mongodb.net/"
+		"mongodb+srv://abkMERN02:@cluster0.ofrmvez.mongodb.net/"
 	)
 	.then(() => console.log("Connected to MongoDB"))
 	.then(() => {
