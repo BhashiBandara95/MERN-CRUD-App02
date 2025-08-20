@@ -18,4 +18,46 @@ const getAllUsers = async (req, res, next) => {
 	return res.status(200).json({ Users });
 };
 
+// data Insert
+
+const addUsers = async (req, res, next) => {
+	const { name, gmail, age, address } = req.body;
+
+	let users;
+
+	try {
+		users = new User({ name, gmail, age, address });
+		await users.save();
+	} catch (err) {
+		console.log(err);
+	}
+
+	// not insert users
+	if (!users) {
+		return res.status(404).json({ message: "unable to add users" });
+	}
+	return res.status(200).json({ users });
+};
+
+// Get by ID
+const getByID = async (req, res, next) => {
+	const id = req.params.id;
+
+	let user;
+
+	try {
+		user = await User.findById(id);
+	} catch (err) {
+		console.log(err);
+	}
+
+	// not available users
+	if (!user) {
+		return res.status(404).json({ message: "Users not found" });
+	}
+	return res.status(200).json({ user });
+};
+
 exports.getAllUsers = getAllUsers;
+exports.addUsers = addUsers;
+exports.getByID = getByID;

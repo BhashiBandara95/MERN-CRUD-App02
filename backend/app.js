@@ -1,12 +1,13 @@
 // create DB connection
 
-const express = require("express"); // setup express mongoose
+const express = require("express"); // setup express
 const mongoose = require("mongoose"); // setup mongoose
 const router = require("./Routes/UserRoutes"); // insert route
 
 const app = express();
 
 // connect middleware
+app.use(express.json()); // convert the post req. data to json responsive
 app.use("/users", router);
 
 // connect to mongoDB

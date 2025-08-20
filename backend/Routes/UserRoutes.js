@@ -5,6 +5,7 @@ const UserController = require("../Controllers/UserControllers"); // Import User
 
 // Create Routes path
 router.get("/", UserController.getAllUsers);
-
+router.post("/", UserController.addUsers);
+router.get("/:id", UserController.getByID); // id - same id use in req.params.id
 // export
 module.exports = router;
